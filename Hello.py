@@ -17,7 +17,7 @@ from streamlit.logger import get_logger
 
 LOGGER = get_logger(__name__)
 
-conn = st.connection("mydb", type="sql", autocommit=True)
+conn = st.connection("mysql", type="sql", autocommit=True)
 
 def run():
     st.set_page_config(
