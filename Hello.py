@@ -24,7 +24,7 @@ def run():
         page_icon="👋",
     )
 
-    conn = st.connection("mysql", type="sql", autocommit=True)
+    conn = st.connection("mysql", type="sql")
 
     st.write("# Welcome to Streamlit! 👋")
 
