@@ -16,7 +16,8 @@ import streamlit as st
 from streamlit.logger import get_logger
 
 LOGGER = get_logger(__name__)
-
+# Initialize connection.
+conn = st.connection('mysql')
 
 def run():
     st.set_page_config(
@@ -45,6 +46,11 @@ def run():
         - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
     """
     )
+
+    df = conn.query('SELECT first_name from user;', ttl=600)
+
+    for row in df.itertuples():
+      st.write(f"{row.first_name}")
 
 
 if __name__ == "__main__":
